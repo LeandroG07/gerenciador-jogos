@@ -1,0 +1,10 @@
+USE jogodb
+GO
+
+CREATE TABLE [Login]
+(
+	IdLogin			INT				PRIMARY KEY		IDENTITY(1,1),
+	Usuario			VARCHAR(20)		NOT NULL,
+	Senha			VARCHAR(50)		NOT NULL,
+	NomeUsuario		VARCHAR(150)	NOT NULL,
+)

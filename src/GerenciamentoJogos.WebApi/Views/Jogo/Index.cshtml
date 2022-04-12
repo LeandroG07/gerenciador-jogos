@@ -1,0 +1,34 @@
+﻿@model IEnumerable<GerenciamentoJogos.Domain.Models.JogoModel>
+
+@{
+    ViewData["Title"] = "Jogos";
+}
+
+<h1>Jogos</h1>
+
+<p>
+    <a asp-action="Inserir">Cadastrar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Atualizar", new { idJogo = item.IdJogo }) |
+                @Html.ActionLink("Excluir", "Excluir", new { idJogo = item.IdJogo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

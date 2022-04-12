@@ -1,0 +1,8 @@
+USE jogodb
+GO
+
+CREATE TABLE Jogo
+(
+	IdJogo		INT				PRIMARY KEY		IDENTITY(1,1),
+	Nome		VARCHAR(150)	NOT NULL
+)

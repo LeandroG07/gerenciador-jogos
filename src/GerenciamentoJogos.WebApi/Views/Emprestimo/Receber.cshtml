@@ -1,0 +1,46 @@
+﻿@model GerenciamentoJogos.WebApi.ViewModel.EmprestimoViewModel
+
+@{
+    ViewData["Title"] = "Receber Jogo";
+}
+
+
+<h3>Confirma o Recebimento desse Jogo?</h3>
+<div>
+    <h4>Receber Jogo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmprestimoModel.IdEmprestimo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmprestimoModel.IdEmprestimo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmprestimoModel.DataEmprestimo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmprestimoModel.DataEmprestimo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmprestimoModel.Jogo.Nome);
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmprestimoModel.Jogo.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmprestimoModel.Amigo.Nome);
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmprestimoModel.Amigo.Nome)
+        </dd>
+    </dl>
+
+    <form asp-action="Receber">
+        @Html.HiddenFor(m => m.EmprestimoModel.IdEmprestimo)
+        @Html.HiddenFor(m => m.EmprestimoModel.Jogo.IdJogo)
+        @Html.HiddenFor(m => m.EmprestimoModel.Amigo.IdAmigo)
+        <input type="submit" value="Confirmar Recebimento" class="btn btn-primary" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

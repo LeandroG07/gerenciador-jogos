@@ -1,0 +1,29 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Erro";
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"] - Login</title>
+</head>
+<body>
+
+    <h1 class="text-danger">Erro.</h1>
+    <h2 class="text-danger">Ocorreu um erro inesperado.</h2>
+
+</body>
+</html>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Detalhes:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+

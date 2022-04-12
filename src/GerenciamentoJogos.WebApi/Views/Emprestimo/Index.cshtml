@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GerenciamentoJogos.Domain.Models.EmprestimoModel>
+
+@{
+    ViewData["Title"] = "Jogos Emprestados";
+}
+
+<h1>Jogos Emprestados</h1>
+
+<p>
+    <a asp-action="Inserir">Emprestar Jogo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataEmprestimo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jogo.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amigo.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEmprestimo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jogo.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amigo.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Atualizar", new {  idEmprestimo=item.IdEmprestimo  }) |                
+                @Html.ActionLink("Receber", "Receber", new { idEmprestimo = item.IdEmprestimo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

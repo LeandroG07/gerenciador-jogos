@@ -1,0 +1,10 @@
+USE jogodb
+GO
+
+CREATE TABLE Amigo
+(
+	IdAmigo		INT				PRIMARY KEY		IDENTITY(1,1),
+	Nome		VARCHAR(150)	NOT NULL,
+	Endereco	VARCHAR(250)	NULL,
+	Telefone	VARCHAR(20)		NULL
+)
