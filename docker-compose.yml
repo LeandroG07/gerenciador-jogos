@@ -9,8 +9,19 @@ services:
             - db
     db:
         container_name: gerenciador-jogos-db
-        build:
-            context: .
-            dockerfile: scripts/Dockerfile        
+        image: mcr.microsoft.com/mssql/server:2019-latest    
         ports:
             - "6060:1433"
+        volumes:
+            # we copy our scripts onto the container
+            - ./:/db/data 
+        # bash will be executed from that path, our scripts folder
+        working_dir: /db/data
+        # run the entrypoint.sh that will import the data AND sqlserver
+        command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+        environment:
+            ACCEPT_EULA: Y
+            SA_PASSWORD: '@gerenciadorjogos123'
+            
+volumes:
+    volumedata:
